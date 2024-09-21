@@ -1,5 +1,5 @@
 const express = require ("express");
-const app= express();
+const app = express();
 let mysql = require("mysql");
 let conexion = mysql.createConnection({
     host:"localhost",
@@ -12,7 +12,7 @@ conexion.connect(function(error){
     if(error){
         throw error;
     }else{
-        console.log("conexion eseta")
+        console.log("conexion establed")
       
     }
 });

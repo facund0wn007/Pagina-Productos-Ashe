@@ -53,7 +53,7 @@ const CargarCategorias=(categoria)=>{
     selecFiltro.innerHTML='<option value="0">TODAAAAAAAAA</option>'
     categoria.forEach(categoria=>{
         selecFiltro.innerHTML+=//html
-        `<option value="${categoria.id}">${categoria.nombre}</option>`
+        `<option id="options" value="${categoria.id}">${categoria.nombre}</option>`
     })
 }
 
@@ -113,7 +113,7 @@ botonPlata.addEventListener('click', () => {
 
 // Event listener para la búsqueda de productos por nombre
 
-const inputBusqueda = document.querySelector("#campoBusqueda")
+const inputBusqueda = document.querySelector(".campoBusqueda")
 inputBusqueda.addEventListener('input', () => {
     const terminoBusqueda = inputBusqueda.value.trim();
     buscarProductos(terminoBusqueda);

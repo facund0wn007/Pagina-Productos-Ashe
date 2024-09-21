@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     
     <title>Productos</title>
     
     <link rel="stylesheet" href="./estilos/productos.css">
  
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="navbarencia">
-        <div class="navbar-container"></div>
+        <div></div>
             <ul class="sidebar">
                 <div class="logo">
                     <img src="img/c1.png" alt="imagen-logo">
@@ -58,10 +58,10 @@
       <!--Filtros-->
     <nav>
         <div class="filtros">
-            <input type="text" id="campoBusqueda" placeholder="Buscar...">
+            <input type="text" class="campoBusqueda" placeholder="Buscar...">
             <select class="filtro-select butones" id="filtroCategoria"></select>
-            <button class="filtro-button butones" id="botonPobreza" type="button">pobreza</button>
-            <button class="filtro-button butones" id="botonPlata" type="button">plata</button>
+            <button class="filtro-button butones hideOnmobile" id="botonPobreza" type="button">pobreza</button>
+            <button class="filtro-button butones hideOnmobile" id="botonPlata" type="button">plata</button>
             <button id="btnMostrarCarrito" class="filtro-button carrito butones">Carrito 🐐 </button>
         </div>
     </nav>
@@ -76,23 +76,29 @@
     <!---carrito-->
     <section>
         <div style="display: none;" class="carritoModelo">
-            <div class="productosCarrito">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ProductosComprados">
-                    </tbody>
-                </table>
-                <p> Total $ <span id="carritoTotal"></span></p>
-            </div>
+            <div class="carro">
+                <div class="productosCarrito">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ProductosComprados">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total $<span id="carritoTotal"></span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
                 <button class="btn" id="btnCerrarCarrito" type="button" >Cerrar</button>
                 <button class="btn" id="btnComprar" type="button" >Comprar</button>
+            </div>
         </div>
 
     </section>
@@ -101,18 +107,12 @@
         let listaProductos=[];
     listaProductos = <%- JSON.stringify(listaA) %>;
     const listaCategorias = <%- JSON.stringify(listaB) %>;
-     
     </script>
 
     <script src="./script/productos.js"></script> 
     <script src="./script/carritou.js"></script> 
     <script src="./script/carrusel.js"></script>
     <script src="./script/navbar.js"></script>
-    
-<!--asi es en el html
-  <% listaA.forEach(producto => { %>
-    <img src="data:image/jpeg;base64,<%= producto.imagen %>" alt="Imagen de <%= producto.nombre %>">
- <% }); %>
--->
+
 </body>
 </html>

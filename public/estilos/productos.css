@@ -31,13 +31,14 @@ body{
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
   }
 
   /*Aqui el "fondo" de la navbar*/
   .navbar{
    background-color: rgba(0, 0, 0, 0.267);
-   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   }
 
@@ -164,9 +165,10 @@ body{
     right: 0;
     height: 250vh;
     background-color: rgba(0, 0, 0, 0.267);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-    z-index: 3;
+    z-index: 5;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -276,7 +278,7 @@ body{
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 4;
 }
 
 .prev {
@@ -292,14 +294,12 @@ body{
 .filtros {
     margin: 30px 0px;
     padding: 20px;
-    /*background-color: #5c0000; */
     background-color: #282828;
     display: flex;
-    flex-direction: row;
 }
 
-#campoBusqueda {
-    width: 800px; /* Ancho del cuadro de texto */
+.campoBusqueda {
+    width: 40%; /* Ancho del cuadro de texto */
     height: 50px; /* Alto del cuadro de texto */
     padding-left: 15px; /* Espacio interno dentro del cuadro */
     font-size: 20px; /* Tamaño de la fuente */
@@ -351,8 +351,12 @@ body{
 
 .filtro-button:hover {
   background: linear-gradient(135deg, #cf0000, #4b0909);
-  /*background: linear-gradient(135deg, #e62525e4, #760e0eec); */
 }
+
+.filtro-select option{
+  color: #1d1b1b;
+}
+
 
 /* Aqui empieza toda la parte de los Productos */
 
@@ -364,15 +368,29 @@ body{
     width: 80%;
     margin: auto;
     background-color: #b0b2b0;
-    /*background-color: #f5f5f5; */
-    /*background-color: #888888; */
     border: 5px solid #cf0000;
     border-radius: 10px;
 }
+
+@media(max-width: 1052px){
+  .producto{
+    flex-direction: column;
+  }
+  .filtros {
+    flex-direction: column;
+  }
+  .CampoBusqueda {
+    width: 100%;
+    height: 30px;
+    margin: 20px;
+  }
+  .butones {
+    margin-top: 10px;
+  }
+}
+
 .producto {
-    /*background-color: #494949;*/
     background-color: #27272af6;
-    /*background: linear-gradient(135deg, #760e0eec, #e62525e4);*/
     border-radius: 5px;
     width: 250px;
     text-align: center;
@@ -382,7 +400,6 @@ body{
 .producto img {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
     padding: 10px 10px 0px 10px;
 }
 
@@ -398,8 +415,13 @@ body{
   padding: 10px 20px;
 }
 
-#titulou {
+.producto h4 {
   font-size: 18px;
+  margin: 5px;
+}
+
+.producto p {
+  margin: 10px;
 }
 
 .agregar {
@@ -429,4 +451,118 @@ body{
 .producto input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+
+.carritoModelo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.267);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  font-size: larger;
+  display: flex;
+  justify-content: center; /* Centra todo el contenido horizontalmente */
+  align-items: center; /* Centra todo el contenido verticalmente */
+}
+
+.carro {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  flex-direction: column; /* Organiza los elementos en columna */
+  margin: 0;
+  color: #F9FAFC;
+  padding: 20px;
+  width: 500px; /* Ancho mínimo opcional */
+  background-color: #1f1f1f56;
+  border-radius: 50px;
+}
+
+.btn {
+  font-size: 20px;
+  background: linear-gradient(135deg, #760e0eec, #e62525e4);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.884);
+  font-weight: 700;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+
+/* Estilo general de la tabla */
+table {
+  width: 100%;
+  border-collapse: separate; /* Permite separar los bordes */
+  border-spacing: 0; /* Elimina los espacios entre celdas */
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo del encabezado de la tabla */
+thead {
+  background: linear-gradient(135deg, #760e0eec, #e62525e4);
+  color: white; /* Color del texto del encabezado */
+  font-weight: bold; /* Resalta el encabezado */
+  border: 2px solid #4CAF50; /* Borde alrededor del encabezado */
+}
+
+/* Estilo para las celdas del encabezado */
+thead th {
+  padding: 10px;
+  border-bottom: 2px solid #fff; /* Línea blanca que separa las celdas */
+}
+
+/* Estilo del cuerpo de la tabla */
+tbody {
+  border: 1px solid #ddd; /* Borde del cuerpo de la tabla */
+}
+
+/* Estilo de las filas del cuerpo */
+tbody tr {
+  border-bottom: 1px solid #ddd; /* Borde inferior de cada fila */
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estilo del pie de la tabla */
+tfoot {
+  border: 2px solid #ddd; /* Borde del pie */
+  font-weight: bold;
+}
+
+/* Estilo de las celdas del pie */
+tfoot td {
+  padding: 10px;
+  text-align: center;
+  border-top: 2px solid #ddd; /* Borde superior que separa el pie del cuerpo */
+}
+
+.EliminarCarrito {
+  font-size: 20px;
+  background: linear-gradient(135deg, #760e0eec, #e62525e4);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.884);
+  font-weight: 700;
+  padding: 2px 5px;
+  margin-top: auto;
+}
+
+.no-scroll {
+  overflow: hidden; /* Quita el scroll */
 }
